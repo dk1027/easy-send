@@ -9,7 +9,8 @@
     "license": "MIT",
     "scripts": {
         "dev": "ts-node src/easySend.ts",
-        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+        "build": "tsc"
     },
     "husky": {
         "hooks": {

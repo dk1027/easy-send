@@ -13,7 +13,7 @@ easy-send -f <path-to-file>
 This will spin up a HTTP serve with a random URL, for example:
 
 ```
-$ easySend.js -f yarn.lock
+$ easy-send -f yarn.lock
 IP addresses:
 lo0 127.0.0.1
 en0 192.168.0.11
