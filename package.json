@@ -1,6 +1,6 @@
 {
     "name": "easy-send",
-    "version": "0.0.1-dev.2",
+    "version": "0.0.1-dev.3",
     "description": "Share single file easily",
     "main": "dist/easySend.js",
     "bin": "./bin/easy-send",
@@ -29,11 +29,20 @@
         "eslint": "^7.4.0",
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-prettier": "^3.1.4",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.11",
         "prettier": "^2.0.5",
         "ts-node": "^8.10.2",
         "typescript": "^3.9.6"
     },
     "dependencies": {
         "commander": "^5.1.0"
-    }
+    },
+    "keywords": [
+      "share",
+      "file",
+      "send",
+      "utility",
+      "tool"
+    ]
 }
