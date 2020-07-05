@@ -1,0 +1,38 @@
+{
+    "name": "easy-send",
+    "version": "0.0.1",
+    "description": "Share single file easily",
+    "main": "dist/easySend.js",
+    "repository": "git@github.com:dk1027/easy-send.git",
+    "author": "King Long Tse",
+    "license": "MIT",
+    "scripts": {
+        "dev": "ts-node src/easySend.ts",
+        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts,tsx}": [
+            "eslint --fix"
+        ]
+    },
+    "devDependencies": {
+        "@types/commander": "^2.12.2",
+        "@types/node": "^14.0.14",
+        "@typescript-eslint/eslint-plugin": "^3.5.0",
+        "@typescript-eslint/parser": "^3.5.0",
+        "eslint": "^7.4.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "prettier": "^2.0.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.6"
+    },
+    "dependencies": {
+        "commander": "^5.1.0"
+    }
+}
