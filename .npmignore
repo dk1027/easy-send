@@ -2,5 +2,7 @@
 .gitignore
 .prettierrc.js
 .eslintrc.js
+.vscode
 node_modules
 src
+tsconfig.json

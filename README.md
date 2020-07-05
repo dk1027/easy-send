@@ -25,11 +25,12 @@ http://192.168.0.11:8000/soej
 Other options
 ```
 $ easy-send -h
-Usage: easySend [options]
+Usage: easy-send [options]
 
 Options:
   -f, --file <path-to-file>  path to file
   -id, --id <id>             id in the url e.g. http://localhost:8080/:id
-  -p, --port <port>          port to listen on. If port is taken then program will try to find the next available port (default: 8000)
+  -p, --port <port>          port to listen on. If port is taken then program will try to find the next available port (default:
+                             8000)
   -h, --help                 display help for command
 ```
