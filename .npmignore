@@ -1,0 +1,6 @@
+.nvmrc
+.gitignore
+.prettierrc.js
+.eslintrc.js
+node_modules
+src
