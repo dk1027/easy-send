@@ -1,6 +1,8 @@
 # easy-send
 Share a single file easily from local machine.
 
+If you want to share a file over the internet, it is probably better to use something like [Firefox Send](https://send.firefox.com/)
+
 ## Installation
 ```bash
 npm install -g easy-send
