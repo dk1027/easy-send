@@ -4,7 +4,9 @@ var commander_1 = require("commander");
 var http_1 = require("http");
 var fs_1 = require("fs");
 var os_1 = require("os");
-commander_1.program.requiredOption('-f, --file <path-to-file>', 'path to file')
+commander_1.program
+    .requiredOption('-f, --file <path-to-file>', 'path to file')
+    .name('easy-send')
     .option('-id, --id <id>', 'id in the url e.g. http://localhost:8080/:id')
     .option('-p, --port <port>', 'port to listen on. If port is taken then program will try to find the next available port', function (val, _) { return parseInt(val); }, 8000)
     .parse(process.argv);
@@ -16,7 +18,7 @@ if (!fs_1.existsSync(commander_1.program.file)) {
     process.exit(1);
 }
 // adapted from https://stackoverflow.com/questions/3653065/get-local-ip-address-in-node-js
-console.log("Host IP addresses:");
+console.log('Host IP addresses:');
 var ifaces = os_1.networkInterfaces();
 var ipAddresses = [];
 Object.keys(ifaces).forEach(function (ifname) {
@@ -38,7 +40,6 @@ Object.keys(ifaces).forEach(function (ifname) {
         ++alias;
     });
 });
-
 // adapted from https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
 // creates a random url on which we serve the file
 function makeid(length) {
@@ -55,7 +56,7 @@ var listener = function (req, res) {
     res.writeHead(200);
     if (req.url != null && req.url === "/" + commander_1.program.id) {
         req.on('close', function () {
-            console.log("done, bye!");
+            console.log('done, bye!');
             process.exit();
         });
         console.log("Remote address: " + req.connection.remoteAddress);
