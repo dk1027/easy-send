@@ -4,6 +4,7 @@ var commander_1 = require("commander");
 var http_1 = require("http");
 var fs_1 = require("fs");
 var os_1 = require("os");
+var path_1 = require("path");
 commander_1.program
     .requiredOption('-f, --file <path-to-file>', 'path to file')
     .name('easy-send')
@@ -53,17 +54,21 @@ function makeid(length) {
 }
 // serve the file on /:id and exit
 var listener = function (req, res) {
-    res.writeHead(200);
     if (req.url != null && req.url === "/" + commander_1.program.id) {
         req.on('close', function () {
             console.log('done, bye!');
             process.exit();
+        });
+        res.writeHead(200, {
+            "Content-Type": "application/octet-stream",
+            "Content-Disposition": "attachment; filename=" + path_1.basename(commander_1.program.file)
         });
         console.log("Remote address: " + req.connection.remoteAddress);
         var readStream = fs_1.createReadStream(commander_1.program.file);
         readStream.pipe(res);
     }
     else {
+        res.writeHead(200);
         res.end();
     }
 };

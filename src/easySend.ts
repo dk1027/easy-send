@@ -2,6 +2,7 @@ import { program } from 'commander';
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { createReadStream, existsSync } from 'fs';
 import { networkInterfaces } from 'os';
+import { basename } from 'path';
 program
     .requiredOption('-f, --file <path-to-file>', 'path to file')
     .name('easy-send')
@@ -61,16 +62,20 @@ function makeid(length: number): string {
 
 // serve the file on /:id and exit
 const listener = (req: IncomingMessage, res: ServerResponse) => {
-    res.writeHead(200);
     if (req.url != null && req.url === `/${program.id}`) {
         req.on('close', () => {
             console.log('done, bye!');
             process.exit();
         });
+        res.writeHead(200, {
+            'Content-Type': 'application/octet-stream',
+            'Content-Disposition': `attachment; filename=${basename(program.file)}`,
+        });
         console.log(`Remote address: ${req.connection.remoteAddress}`);
         const readStream = createReadStream(program.file);
         readStream.pipe(res);
     } else {
+        res.writeHead(200);
         res.end();
     }
 };
